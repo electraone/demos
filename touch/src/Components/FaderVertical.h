@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Component.h"
+#include "System.h"
 
 class FaderVertical final : public Component
 {
@@ -13,21 +14,21 @@ public:
 
     void paint(Graphics &g) override
     {
-        g.fillAll(Colours::black);
+        g.fillAll(Colours565::black);
 
-        g.setColour(Colours::darkorange);
+        g.setColour(Colours565::darkorange);
         g.fillRoundRect(0, 0, getWidth(), getHeight(), 20);
 
-        g.setColour(Colours::black);
+        g.setColour(Colours565::black);
         g.fillRect(0, 0, getWidth(), faderPosition);
 
-        g.setColour(Colours::white);
+        g.setColour(Colours565::white);
         g.drawRoundRect(0, 0, getWidth(), getHeight(), 20);
     }
 
     void onTouchDown(const TouchEvent &touchEvent) override
     {
-        logMessage("callback: %s down", getName());
+        System::logger.write(LOG_ERROR, "callback: %s down", getName());
         repaint();
     }
 
@@ -41,7 +42,7 @@ public:
 
     void onTouchUp(const TouchEvent &touchEvent) override
     {
-        logMessage("callback: %s up", getName());
+        System::logger.write(LOG_ERROR, "callback: %s up", getName());
         repaint();
     }
 
@@ -49,7 +50,7 @@ public:
     {
         value = newValue;
         faderPosition = map(newValue, min, max, 0, getHeight());
-        logMessage("callback: %s has new value: %d", getName(), value);
+        System::logger.write(LOG_ERROR, "callback: %s has new value: %d", getName(), value);
         repaint();
     }
 

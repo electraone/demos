@@ -5,7 +5,7 @@
 MainComponent::MainComponent()
 {
     adsr = new ADSR;
-    adsr->setColour(Colours::darkslateblue);
+    adsr->setColour(Colours565::darkslateblue);
     adsr->assignPot(0);
     adsr->setActiveSegment(ADSR::sustain);
     adsr->setMin(ADSR::attack, -127.0f);
@@ -29,7 +29,7 @@ MainComponent::MainComponent()
     addAndMakeVisible(adsr);
 
     adr = new ADR;
-    adr->setColour(Colours::coral);
+    adr->setColour(Colours565::coral);
     adr->assignPot(1);
     adr->setActiveSegment(ADR::decay);
 
@@ -49,7 +49,7 @@ MainComponent::MainComponent()
     addAndMakeVisible(adr);
 
     ar = new AR;
-    ar->setColour(Colours::darkolivegreen);
+    ar->setColour(Colours565::darkolivegreen);
     ar->assignPot(2);
     ar->setActiveSegment(AR::release);
 
@@ -66,7 +66,7 @@ MainComponent::MainComponent()
     addAndMakeVisible(ar);
 
     ahdsr = new AHDSR;
-    ahdsr->setColour(Colours::magenta);
+    ahdsr->setColour(Colours565::magenta);
     ahdsr->assignPot(3);
     ahdsr->setActiveSegment(AHDSR::sustain);
     ahdsr->setMin(AHDSR::sustain, -1.0f);
@@ -81,7 +81,7 @@ MainComponent::MainComponent()
     addAndMakeVisible(ahdsr);
 
     adssr = new ADSSR;
-    adssr->setColour(Colours::khaki);
+    adssr->setColour(Colours565::khaki);
     adssr->assignPot(6);
     adssr->setActiveSegment(ADSSR::breakPoint);
     adssr->setMin(ADSSR::sustain, -1.0f);
@@ -99,7 +99,7 @@ MainComponent::MainComponent()
     addAndMakeVisible(adssr);
 
     env5Seg = new Env5Seg;
-    env5Seg->setColour(Colours::mediumaquamarine);
+    env5Seg->setColour(Colours565::mediumaquamarine);
     env5Seg->assignPot(7);
     env5Seg->setActiveSegment(Env5Seg::rate2);
     env5Seg->setMin(Env5Seg::level1, 0.0f);
@@ -141,7 +141,7 @@ MainComponent::~MainComponent()
 
 void MainComponent::paint(Graphics &g)
 {
-    g.fillAll(Colours::black);
+    g.fillAll(Colours565::black);
 }
 
 void MainComponent::resized()

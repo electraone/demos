@@ -23,10 +23,9 @@ public:
         return ("pads");
     }
 
-    void initialise(void) override
+    void initialise(void)
     {
-        mainWindow.display();
-        logMessage("setup completed");
+        System::logger.write(LOG_ERROR, "setup completed");
     }
 
     class MainWindow : public Window

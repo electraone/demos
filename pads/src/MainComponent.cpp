@@ -6,16 +6,16 @@ MainComponent::MainComponent()
     for (uint8_t col = 0; col < numCols; col++) {
         for (uint8_t row = 0; row < numRows; row++) {
             pad[col][row] = new Pad;
-            pad[col][row]->setColour((col % 4) == 0 ? Colours::darkorange
-                                                    : Colours::darksalmon);
+            pad[col][row]->setColour((col % 4) == 0 ? Colours565::darkorange
+                                                    : Colours565::darksalmon);
             if (col == 0) {
                 pad[col][row]->setColour(
-                    Colours::lighter(Colours::darkorange, 0.50));
+                    Colours565::lighter(Colours565::darkorange, 0.50));
             }
 
             if (col == 1) {
                 pad[col][row]->setColour(
-                    Colours::lighter(Colours::darksalmon, 0.50));
+                    Colours565::lighter(Colours565::darksalmon, 0.50));
             }
             addAndMakeVisible(pad[col][row]);
         }
@@ -30,7 +30,7 @@ MainComponent::~MainComponent()
 
 void MainComponent::paint(Graphics &g)
 {
-    g.fillAll(ElectraColours::rgb565NumericBlack);
+    g.fillAll(Colours565::black);
 }
 
 void MainComponent::resized()

@@ -23,8 +23,7 @@ public:
 
     void initialise(void)
     {
-        mainWindow.display();
-        logMessage("setup completed");
+        System::logger.write(LOG_ERROR, "setup completed");
     }
 
     class MainWindow : public Window

@@ -19,17 +19,10 @@ MainComponent::MainComponent()
     items.addItem(16, "Sixteen");
     items.addItem(17, "Seventeen");
     items.addItem(18, "Eightteen");
-    //items.addItem(19, "Nineteen");
 
-    items2.addItem(1, "One");
-    items2.addItem(2, "Two");
-    items2.addItem(4, "Four");
-
-    list = new List;
-    list->setColour(Colours::orange);
+    list = new List(&items);
+    list->setColour(Colours565::orange);
     list->assignPot(0, items.getNumItems());
-    list->assignListData(items2);
-    list->assignListData(items);
 
     addAndMakeVisible(list);
 
@@ -42,7 +35,7 @@ MainComponent::~MainComponent()
 
 void MainComponent::paint(Graphics &g)
 {
-    g.fillAll(Colours::black);
+    g.fillAll(Colours565::black);
 }
 
 void MainComponent::resized()

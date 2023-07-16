@@ -13,7 +13,6 @@ public:
 
     void handleIncomingMidiMessage(const MidiInput &midiInput,
                                    const MidiMessage &midiMessage) override;
-
     void paint(Graphics &g) override;
     void resized(void) override;
 

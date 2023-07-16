@@ -10,37 +10,37 @@ MainComponent::MainComponent()
     knobLeft = new Knob;
     knobRight = new Knob;
 
-    sliderHorizontal->setColour(Colours::slateblue);
+    sliderHorizontal->setColour(Colours565::slateblue);
     sliderHorizontal->setMinimum(0.0f);
     sliderHorizontal->setMaximum(127.0f);
     sliderHorizontal->setValue(64.0f);
     sliderHorizontal->assignPot(3);
 
-    sliderVertical->setColour(Colours::crimson);
+    sliderVertical->setColour(Colours565::crimson);
     sliderVertical->setMinimum(0.0f);
     sliderVertical->setMaximum(127.0f);
     sliderVertical->setValue(64.0f);
     sliderVertical->assignPot(1);
 
-    barHorizontal->setColour(Colours::darkseagreen);
+    barHorizontal->setColour(Colours565::darkseagreen);
     barHorizontal->setMinimum(-127.0f);
     barHorizontal->setMaximum(127.0f);
     barHorizontal->setValue(64.0f);
     barHorizontal->assignPot(4);
 
-    barVertical->setColour(Colours::red);
+    barVertical->setColour(Colours565::red);
     barVertical->setMinimum(0.0f);
     barVertical->setMaximum(127.0f);
     barVertical->setValue(64.0f);
     barVertical->assignPot(2);
 
-    knobLeft->setColour(Colours::orangered);
+    knobLeft->setColour(Colours565::orangered);
     knobLeft->setMinimum(0.0f);
     knobLeft->setMaximum(127.0f);
     knobLeft->setValue(64.0f);
     knobLeft->assignPot(0);
 
-    knobRight->setColour(Colours::olive);
+    knobRight->setColour(Colours565::olive);
     knobRight->setMinimum(-127.0f);
     knobRight->setMaximum(127.0f);
     knobRight->setValue(64.0f);
@@ -62,7 +62,7 @@ MainComponent::~MainComponent()
 
 void MainComponent::paint(Graphics &g)
 {
-    g.fillAll(ElectraColours::rgb565NumericBlack);
+    g.fillAll(Colours565::black);
     g.printText(0,
                 500,
                 "Slider demo",

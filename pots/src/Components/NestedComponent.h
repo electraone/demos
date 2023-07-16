@@ -10,8 +10,8 @@ public:
         knob1 = new Knob();
         knob2 = new Knob();
 
-        knob1->setColour(Colours::mediumpurple);
-        knob2->setColour(Colours::red);
+        knob1->setColour(Colours565::mediumpurple);
+        knob2->setColour(Colours565::red);
 
         knob1->setName("knob3");
         knob2->setName("knob4");
@@ -35,8 +35,8 @@ public:
 
     void paint(Graphics &g) override
     {
-        g.fillAll(Colours::black);
-        g.setColour(Colours::darkgrey);
+        g.fillAll(Colours565::black);
+        g.setColour(Colours565::darkgrey);
         g.drawRoundRect(0, 0, getWidth(), getHeight(), 20);
     }
 
@@ -48,7 +48,7 @@ public:
 
     void onPotChange(const PotEvent &potEvent) override
     {
-        logMessage("pot %s moving", potEvent.getEventComponent()->getName());
+        System::logger.write(LOG_ERROR, "pot %s moving", potEvent.getEventComponent()->getName());
     }
 
 private:

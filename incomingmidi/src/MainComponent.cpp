@@ -1,5 +1,5 @@
 #include "MainComponent.h"
-#include "helpers.h"
+#include "System.h"
 
 MainComponent::MainComponent()
 {
@@ -13,13 +13,13 @@ MainComponent::~MainComponent()
 void MainComponent::handleIncomingMidiMessage(const MidiInput &midiInput,
                                               const MidiMessage &midiMessage)
 {
-    logMessage("midi message: iface: %d, port: %d, event: %s",
+    System::logger.write(LOG_ERROR, "midi message: iface: %d, port: %d, event: %s",
                midiInput.getInterfaceType(),
                midiInput.getPort(),
                midiMessage.getDescription());
 
     if (midiMessage.isSysEx()) {
-        logMessage("---< sysex start: interface=%s, port=%d >---",
+        System::logger.write(LOG_ERROR, "---< sysex start: interface=%s, port=%d >---",
                    MidiInterface::getName(midiInput.getInterfaceType()),
                    midiInput.getPort());
 
@@ -27,17 +27,17 @@ void MainComponent::handleIncomingMidiMessage(const MidiInput &midiInput,
         size_t sysexLength = sysexBlock.getLength();
 
         for (size_t i = 0; i < sysexLength; i++) {
-            byte sysexByte = sysexBlock.peek(i);
-            logMessage("%d> %d (%c)", i, sysexByte, sysexByte);
+            uint8_t sysexByte = sysexBlock.peek(i);
+            System::logger.write(LOG_ERROR, "%d> %d (%c)", i, sysexByte, sysexByte);
         }
 
-        logMessage("---------------------");
+        System::logger.write(LOG_ERROR, "---------------------");
     }
 }
 
 void MainComponent::paint(Graphics &g)
 {
-    g.fillAll(ElectraColours::rgb565NumericBlack);
+    g.fillAll(Colours565::black);
     g.printText(0,
                 getHeight() / 2,
                 "Incoming MIDI",

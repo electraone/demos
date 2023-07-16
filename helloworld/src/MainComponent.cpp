@@ -12,7 +12,7 @@ MainComponent::~MainComponent()
 
 void MainComponent::paint(Graphics &g)
 {
-    g.fillAll(ElectraColours::rgb565NumericBlack);
+    g.fillAll(Colours565::black);
     g.printText(0,
                 getHeight() / 2,
                 "Hello world!",
